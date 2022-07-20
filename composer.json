@@ -1,0 +1,21 @@
+{
+    "name": "chareasy/lark-api",
+    "description": "飞书api",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "CharEasy\\LarkApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "CharEasy",
+            "email": "489644865@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}
