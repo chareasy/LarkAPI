@@ -1,6 +1,6 @@
 <?php
 
-namespace CharEasy\LarkApi;
+namespace CharEasy\LarkApi\Token;
 
 use GuzzleHttp\Client;
 
