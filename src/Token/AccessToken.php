@@ -3,7 +3,7 @@
  * Don't let love live in memory.
  * user: CharEasy
  * Date：2022/7/20
- * Time: 21:17
+ * Time: 21:17.
  */
 
 namespace CharEasy\LarkApi\Token;
@@ -38,10 +38,10 @@ class AccessToken
         $response = $client->request('POST', $this->_apiUrl, [
             'headers' => $header,
             'verify' => false,
-            'body' => json_encode($params)
+            'body' => json_encode($params),
         ]);
         $httpCode = $response->getStatusCode();
-        if ($httpCode == 200) {
+        if (200 == $httpCode) {
             return json_decode($response->getBody()->getContents(), 1);
         } else {
             return [];
