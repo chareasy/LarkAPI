@@ -36,10 +36,10 @@ class AccessToken
         $params['app_secret'] = $this->_appSecret;
         $response = $client->request('POST', $this->_apiUrl, [
             'headers' => $header,
-            'body'    => json_encode($params),
+            'body' => json_encode($params),
         ]);
         $httpCode = $response->getStatusCode();
-        if ($httpCode == 200) {
+        if (200 == $httpCode) {
             return json_decode($response->getBody()->getContents(), 1);
         } else {
             return [];
