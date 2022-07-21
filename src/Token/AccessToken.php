@@ -10,7 +10,6 @@ namespace CharEasy\LarkApi\Token;
 
 use GuzzleHttp\Client;
 
-
 class AccessToken
 {
     private string $_appId;
@@ -30,7 +29,7 @@ class AccessToken
     {
         $client = new Client();
         $header = [
-            'content-type' => 'application/json; charset=utf-8'
+            'content-type' => 'application/json; charset=utf-8',
         ];
         $params = [];
         $params['app_id'] = $this->_appId;
@@ -47,5 +46,4 @@ class AccessToken
             return [];
         }
     }
-
 }
