@@ -1,21 +1,22 @@
 <?php
-
-namespace CharEasy\LarkApi\Token;
-
-use GuzzleHttp\Client;
-
 /**
  * Don't let love live in memory.
  * user: CharEasy
  * Date：2022/7/20
  * Time: 21:17
  */
+
+namespace CharEasy\LarkApi\Token;
+
+use GuzzleHttp\Client;
+
+
 class AccessToken
 {
-    private $_appId;
-    private $_appSecret;
+    private string $_appId;
+    private string $_appSecret;
 
-    private $_apiUrl = 'https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal';
+    private string $_apiUrl = 'https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal';
 
 //    private $_apiUrl = 'https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal';
 
@@ -36,6 +37,7 @@ class AccessToken
         $params['app_secret'] = $this->_appSecret;
         $response = $client->request('POST', $this->_apiUrl, [
             'headers' => $header,
+            'verify' => false,
             'body' => json_encode($params)
         ]);
         $httpCode = $response->getStatusCode();
