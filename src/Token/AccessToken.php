@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
  * Don't let love live in memory.
  * user: CharEasy
  * Date：2022/7/20
- * Time: 21:17
+ * Time: 21:17.
  */
 class AccessToken
 {
@@ -29,14 +29,14 @@ class AccessToken
     {
         $client = new Client();
         $header = [
-            'content-type' => 'application/json; charset=utf-8'
+            'content-type' => 'application/json; charset=utf-8',
         ];
         $params = [];
         $params['app_id'] = $this->_appId;
         $params['app_secret'] = $this->_appSecret;
         $response = $client->request('POST', $this->_apiUrl, [
             'headers' => $header,
-            'body' => json_encode($params)
+            'body'    => json_encode($params),
         ]);
         $httpCode = $response->getStatusCode();
         if ($httpCode == 200) {
@@ -45,5 +45,4 @@ class AccessToken
             return [];
         }
     }
-
 }
