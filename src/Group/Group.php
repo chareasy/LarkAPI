@@ -30,20 +30,14 @@ class Group
         $client = new Client();
         $header = [
             'content-type' => 'application/json; charset=utf-8',
-            'Authorization' => 'Bearer '.$token,
+            'Authorization' => 'Bearer ' . $token,
         ];
-
-        var_dump($header);
-
-//        die();
-//        $params = [];
         $params['user_id_type'] = '';
         $params['page_token'] = '';
         $params['page_size'] = 100;
         $response = $client->request('GET', $this->_apiUrl, [
-            'header' => $header,
+            'headers' => $header,
             'verify' => false,
-//            'body' => json_encode($params)
         ]);
         $httpCode = $response->getStatusCode();
         if (200 == $httpCode) {
