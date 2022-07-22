@@ -30,7 +30,7 @@ class Group
         $client = new Client();
         $header = [
             'content-type' => 'application/json; charset=utf-8',
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ];
         $params['user_id_type'] = '';
         $params['page_token'] = '';

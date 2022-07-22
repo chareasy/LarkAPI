@@ -19,12 +19,12 @@ class Message
         $client = new Client();
         $header = [
             'content-type' => 'application/json; charset=utf-8',
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ];
         $query = [];
         $query['receive_id_type'] = 'chat_id';
 
-        $this->_apiUrl = $this->_apiUrl . '?' . http_build_query($query);
+        $this->_apiUrl = $this->_apiUrl.'?'.http_build_query($query);
         $params = [];
         $params['receive_id'] = $id;
         $sendContent['text'] = $content;
@@ -120,7 +120,6 @@ class Message
   }
 }';
         $params['msg_type'] = 'interactive';
-
 
         $response = $client->request('POST', $this->_apiUrl, [
             'headers' => $header,
