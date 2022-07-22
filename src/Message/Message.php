@@ -19,14 +19,14 @@ class Message
         $client = new Client();
         $header = [
             'content-type' => 'application/json; charset=utf-8',
-            'Authorization' => 'Bearer ' . $token
+            'Authorization' => 'Bearer '.$token,
         ];
 
         var_dump($header);
         $query = [];
         $query['receive_id_type'] = 'chat_id';
 
-        $this->_apiUrl = $this->_apiUrl . "?" . http_build_query($query);
+        $this->_apiUrl = $this->_apiUrl.'?'.http_build_query($query);
 
 //        var_dump($this->_apiUrl);die();
 
@@ -40,15 +40,13 @@ class Message
         $response = $client->request('POST', $this->_apiUrl, [
             'header' => $header,
             'verify' => false,
-            'body' => json_encode($params)
+            'body' => json_encode($params),
         ]);
         $httpCode = $response->getStatusCode();
-        if ($httpCode == 200) {
+        if (200 == $httpCode) {
             return json_decode($response->getBody()->getContents(), 1);
         } else {
             return [];
         }
-
     }
-
 }
