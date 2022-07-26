@@ -8,16 +8,16 @@
 
 namespace CharEasy\LarkApi\Token;
 
+use CharEasy\LarkApi\Common;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
-class AccessToken
+class AccessToken extends Common
 {
     private string $_appId;
     private string $_appSecret;
 
-    private string $_apiUrl = 'https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal';
-
-//    private $_apiUrl = 'https://open.feishu.cn/open-apis/auth/v3/app_access_token/internal';
+    private string $_apiUrl = 'auth/v3/app_access_token/internal';
 
     public function __construct($appid, $appSecret)
     {
@@ -25,6 +25,11 @@ class AccessToken
         $this->_appSecret = $appSecret;
     }
 
+    /**
+     * 获取AccessToken
+     * @return array|mixed
+     * @throws GuzzleException
+     */
     public function getAccessToken()
     {
         $client = new Client();
@@ -34,7 +39,7 @@ class AccessToken
         $params = [];
         $params['app_id'] = $this->_appId;
         $params['app_secret'] = $this->_appSecret;
-        $response = $client->request('POST', $this->_apiUrl, [
+        $response = $client->request('POST', $this->_baseUrl . $this->_apiUrl, [
             'headers' => $header,
             'verify' => false,
             'body' => json_encode($params),

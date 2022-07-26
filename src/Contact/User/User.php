@@ -8,12 +8,13 @@
 
 namespace CharEasy\LarkApi\Contact\User;
 
+use CharEasy\LarkApi\Common;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
-class User
+class User extends Common
 {
-    private string $_apiUrl = 'https://open.feishu.cn/open-apis/contact/v3/users/batch_get_id';
+    private string $_apiUrl = 'contact/v3/users/batch_get_id';
 
     /**
      * @param $token
@@ -31,7 +32,7 @@ class User
         ];
         $params = ['mobiles' => $tel];
         $client = new Client();
-        $response = $client->request('POST', $this->_apiUrl, [
+        $response = $client->request('POST', $this->_baseUrl.$this->_apiUrl, [
             'headers' => $header,
             'verify' => false,
             'body' => json_encode($params),

@@ -8,12 +8,13 @@
 
 namespace CharEasy\LarkApi\Group;
 
+use CharEasy\LarkApi\Common;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
-class Group
+class Group extends Common
 {
-    private string $_apiUrl = 'https://open.feishu.cn/open-apis/im/v1/chats';
+    private string $_apiUrl = 'im/v1/chats';
 
     /**
      * 获取用户或机器人所在的群列表.
@@ -30,12 +31,12 @@ class Group
         $client = new Client();
         $header = [
             'content-type' => 'application/json; charset=utf-8',
-            'Authorization' => 'Bearer '.$token,
+            'Authorization' => 'Bearer ' . $token,
         ];
         $params['user_id_type'] = '';
         $params['page_token'] = '';
         $params['page_size'] = 100;
-        $response = $client->request('GET', $this->_apiUrl, [
+        $response = $client->request('GET', $this->_baseUrl . $this->_apiUrl, [
             'headers' => $header,
             'verify' => false,
         ]);
