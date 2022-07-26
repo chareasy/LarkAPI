@@ -6,18 +6,14 @@
  * Time: 11:24.
  */
 
-
 namespace CharEasy\LarkApi\Message\MessageContent;
 
 class MsgContent
 {
-
-
     /**
-     * 获取标题设置模块
+     * 获取标题设置模块.
+     *
      * @param $title
-     * @param string $template
-     * @return array
      */
     public function getTitleModule($title, string $template = '#'): array
     {
@@ -26,45 +22,45 @@ class MsgContent
         $module['header']['template'] = $template;
         $module['header']['title'] = [
             'content' => $title,
-            'tag' => 'plain_text'
+            'tag' => 'plain_text',
         ];
+
         return $module;
     }
 
-
     /**
-     * 设置备注
+     * 设置备注.
+     *
      * @param $content
-     * @return array
      */
     public function getNoteModule($content): array
     {
         $module['tag'] = 'note';
         $module['elements'][] = [
             'content' => $content,
-            'tag' => 'lark_md'
+            'tag' => 'lark_md',
         ];
+
         return $module;
     }
 
     /**
      * 获取单行横线
-     * @return array
      */
     public function getHrModule(): array
     {
         $module['tag'] = 'hr';
+
         return $module;
     }
 
-
     /**
-     * 获取双列文本内容
+     * 获取双列文本内容.
+     *
      * @param $firstTitle
      * @param $firstContent
      * @param $secondTitle
      * @param $secondContent
-     * @return array
      */
     protected function getDoubleColumnTestModule($firstTitle, $firstContent, $secondTitle, $secondContent): array
     {
@@ -74,28 +70,27 @@ class MsgContent
         $module['tag'] = 'div';
         $module['fields'][] = $firstColumnContent;
         $module['fields'][] = $secondColumnContent;
+
         return $module;
     }
 
-
     /**
-     * 获取单例文本内容
+     * 获取单例文本内容.
+     *
      * @param $title
      * @param $content
-     * @return array
      */
     private function getSingleColumnTextModule($title, $content): array
     {
         $module['is_short'] = 'true';
         $module['text']['content'] = "**$title**\n$content";
-        $module['text']['tag'] = "lark_md";
+        $module['text']['tag'] = 'lark_md';
+
         return $module;
     }
 
     /**
-     * 获取简单文本内容模块
-     * @param string $content
-     * @return array
+     * 获取简单文本内容模块.
      */
     public function getContentModule(string $content): array
     {
@@ -104,7 +99,5 @@ class MsgContent
         $module['text']['content'] = $content;
 
         return $module;
-
     }
-
 }

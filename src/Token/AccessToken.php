@@ -26,8 +26,10 @@ class AccessToken extends Common
     }
 
     /**
-     * 获取AccessToken
+     * 获取AccessToken.
+     *
      * @return array|mixed
+     *
      * @throws GuzzleException
      */
     public function getAccessToken()
@@ -39,7 +41,7 @@ class AccessToken extends Common
         $params = [];
         $params['app_id'] = $this->_appId;
         $params['app_secret'] = $this->_appSecret;
-        $response = $client->request('POST', $this->_baseUrl . $this->_apiUrl, [
+        $response = $client->request('POST', $this->_baseUrl.$this->_apiUrl, [
             'headers' => $header,
             'verify' => false,
             'body' => json_encode($params),

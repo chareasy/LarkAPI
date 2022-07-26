@@ -6,11 +6,9 @@
  * Time: 14:30.
  */
 
-
 namespace CharEasy\LarkApi\Message\MessageContent;
 
 interface MsgTemplate
 {
     public function buildMsg();
-
 }
