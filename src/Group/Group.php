@@ -31,12 +31,12 @@ class Group extends Common
         $client = new Client();
         $header = [
             'content-type' => 'application/json; charset=utf-8',
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ];
         $params['user_id_type'] = '';
         $params['page_token'] = '';
         $params['page_size'] = 100;
-        $response = $client->request('GET', $this->_baseUrl . $this->_apiUrl, [
+        $response = $client->request('GET', $this->_baseUrl.$this->_apiUrl, [
             'headers' => $header,
             'verify' => false,
         ]);

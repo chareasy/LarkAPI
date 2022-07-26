@@ -6,7 +6,6 @@
  * Time: 14:51.
  */
 
-
 namespace CharEasy\LarkApi;
 
 class Common
