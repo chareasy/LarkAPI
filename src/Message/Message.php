@@ -20,19 +20,19 @@ class Message extends Common
         $client = new Client();
         $header = [
             'content-type' => 'application/json; charset=utf-8',
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ];
         $query = [];
         $query['receive_id_type'] = 'chat_id';
 
-        $this->_apiUrl = $this->_apiUrl . '?' . http_build_query($query);
+        $this->_apiUrl = $this->_apiUrl.'?'.http_build_query($query);
         $params = [];
         $params['receive_id'] = $id;
         $sendContent['text'] = $content;
         $params['content'] = json_encode($sendContent);
         $params['msg_type'] = 'interactive';
 
-        $response = $client->request('POST', $this->_baseUrl . $this->_apiUrl, [
+        $response = $client->request('POST', $this->_baseUrl.$this->_apiUrl, [
             'headers' => $header,
             'verify' => false,
             'body' => json_encode($params),
