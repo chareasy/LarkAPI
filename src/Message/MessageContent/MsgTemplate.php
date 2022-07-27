@@ -8,7 +8,7 @@
 
 namespace CharEasy\LarkApi\Message\MessageContent;
 
-interface  MsgTemplate
+interface MsgTemplate
 {
     public function buildMsg(...$args);
 }
