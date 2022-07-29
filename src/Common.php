@@ -10,5 +10,12 @@ namespace CharEasy\LarkApi;
 
 class Common
 {
-    public string $_baseUrl = 'https://open.feishu.cn/open-apis';
+    public string $_baseUrl = 'https://open.feishu.cn/open-apis/';
+    public string $_token;
+
+    public function __construct($token)
+    {
+        $this->_token = $token;
+    }
+
 }
