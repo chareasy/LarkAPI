@@ -42,7 +42,7 @@ class AccessToken extends Common
         $params = [];
         $params['app_id'] = $this->_appId;
         $params['app_secret'] = $this->_appSecret;
-        $response = $client->request('POST', $this->_baseUrl . $this->_apiUrl, [
+        $response = $client->request('POST', $this->_baseUrl.$this->_apiUrl, [
             'headers' => $header,
             'verify' => false,
             'body' => json_encode($params),

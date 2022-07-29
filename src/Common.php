@@ -17,5 +17,4 @@ class Common
     {
         $this->_token = $token;
     }
-
 }
