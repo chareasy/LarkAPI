@@ -15,7 +15,7 @@ class Message extends Common
 {
     private string $_apiUrl = 'im/v1/messages';
 
-    public function sendMsg($id, $content)
+    public function sendMsg($id, $content, $type = 'chat_id')
     {
         $client = new Client();
         $header = [
@@ -23,7 +23,7 @@ class Message extends Common
             'Authorization' => 'Bearer '.$this->_token,
         ];
         $query = [];
-        $query['receive_id_type'] = 'chat_id';
+        $query['receive_id_type'] = $type;
 
         $this->_apiUrl = $this->_apiUrl.'?'.http_build_query($query);
         $params = [];
