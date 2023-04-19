@@ -12,8 +12,6 @@ class MsgContent
 {
     /**
      * 获取标题设置模块.
-     *
-     * @param $title
      */
     public function getTitleModule($title, string $template = '#'): array
     {
@@ -30,8 +28,6 @@ class MsgContent
 
     /**
      * 设置备注.
-     *
-     * @param $content
      */
     public function getNoteModule($content): array
     {
@@ -56,11 +52,6 @@ class MsgContent
 
     /**
      * 获取双列文本内容.
-     *
-     * @param $firstTitle
-     * @param $firstContent
-     * @param $secondTitle
-     * @param $secondContent
      */
     public function getDoubleColumnTestModule($firstTitle, $firstContent, $secondTitle, $secondContent): array
     {
@@ -76,9 +67,6 @@ class MsgContent
 
     /**
      * 获取单例文本内容.
-     *
-     * @param $title
-     * @param $content
      */
     private function getSingleColumnTextModule($title, $content): array
     {

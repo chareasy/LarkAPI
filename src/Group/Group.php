@@ -19,9 +19,6 @@ class Group extends Common
     /**
      * 获取用户或机器人所在的群列表.
      *
-     * @param $token
-     * @param $userId
-     *
      * @return array|mixed
      *
      * @throws GuzzleException

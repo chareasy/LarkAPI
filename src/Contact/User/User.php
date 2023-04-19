@@ -17,9 +17,6 @@ class User extends Common
     private string $_apiUrl = 'contact/v3/users/batch_get_id';
 
     /**
-     * @param $token
-     * @param $tel
-     *
      * @return array|mixed
      *
      * @throws GuzzleException
